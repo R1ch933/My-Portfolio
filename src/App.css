@@ -1,5 +1,27 @@
+html {
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
+  background: linear-gradient(to right, orange, red, purple);
+  background-image: url(./images/Background.jpg);
+  background-size: cover;
+  width: 100vw;
+  min-height: 4000px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  top: 0vh;
+  position: absolute;
+  overflow: hidden;
+}
+
+p {
+  font-family: 'Muli', sans-serif;
+  color: white;
+}
+
+h1 {
+  color: white;
 }
 
 .App-logo {
@@ -28,11 +50,302 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* NavBar */
+.navigationBar {
+  position: fixed;
+  top: 0vh;
+  min-height: 30px;
+  height: 7vh;
+  width: 100vw;
+  background-color: rgb(48, 47, 47);
+  box-shadow: 0px 7px 10px rgb(29, 29, 29);
+  z-index: 2;
+
+
+}
+
+.navigationBar a {
+  margin-top: 10px;
+  float: left;
+  margin-right: 40px;
+  font-size: medium;
+  color: ivory;
+  text-decoration: none;
+}
+
+.Home {
+  position: relative;
+  margin-left: 40px;
+}
+
+/* Header */
+
+.headerBox {
+  height: 75vh;
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  top: 8vh;
+  border-radius: 10%;
+  opacity: 1;
+}
+
+.titleText {
+  top: 10vh;
+  height: 25vh;
+  width: 100%;
+
+  opacity: 1;
+  position: relative;
+
+  clear: both;
+}
+
+.titleText p {
+  font-size: 10vmin;
+
+}
+
+.briefAbout {
+  height: 7vh;
+
+  width: 100%;
+  position: relative;
+  top: 5vh;
+  display: block;
+  clear: both;
+
+}
+
+.briefAbout p {
+  font-size: 5vmin;
+}
+
+.socialMediaBox {
+  height: 30vh;
+  width: 27vw;
+
+  top: 5vh;
+  left: 31.5vw;
+  position: relative;
+
+
+}
+
+.icon {
+  border: solid;
+  border-radius: 15%;
+  border-width: .25vw;
+  float: left;
+  top: 10vh;
+  position: relative;
+  margin-left: 5vw;
+  color: white;
+}
+
+#firstIcon {
+  margin-left: 0vw;
+}
+
+/* Aboutme */
+
+.aboutMe {
+  height: 120vh;
+  width: 100vw;
+  min-height: 103em;
+  position: relative;
+  top: 25vh;
+  background-color: rgba(29,29,29, 1);
+  
+}
+
+.aboutMeTitle {
+  display: block;
+  width: 100vw;
+  height: 15vh;
+  top: 5vh;
+  position: relative;
+}
+
+.aboutMeTitle p {
+  font-size: 10vmin;
+  font-family: impact;
+}
+
+.underLine {
+  position: relative;
+  top: 3vh;
+  left: 40vw;
+  height: 1.25vh;
+  width: 20vw;
+  background-color: gray;
+}
+
+.profilePic {
+  position: absolute;
+  top: 30vh;
+  left: 11vw;
+  width: 40vw;
+  height: 70vh;
+  background-size: cover;
+
+}
+
+.profilePic2 {
+  position: relative;
+  top: 75vh;
+  left: 47vw;
+  width: 40vw;
+  height: 50vh;
+}
+
+.picCaption {
+  position: relative;
+  top: 38vh;
+  left: 47vw;
+  min-width: 100px;
+  width: 40vmax;
+  background-size: cover;
+  display: block;
+  border: solid;
+  border-color: grey;
+  min-height: 280px;
+}
+
+.picCaption2 {
+  position: relative;
+  top: 20vh;
+  left: 11vw;
+  width: 40vmax;
+  height: auto;
+  background-size: cover;
+  display: block;
+  border: solid;
+  border-color: grey;
+  min-height: 400px;
+  display: block;
+}
+
+.picCaption2Title {
+  width: 15vw;
+  height: 8vh;
+  background-color: grey;
+  top: 30vh;
+  position: relative;
+  z-index: 1;
+  left: 9vw;
+}
+
+.picCaption2Title2 {
+  width: 15vw;
+  height: 8vh;
+  background-color: grey;
+  top: 50vh;
+  position: absolute;
+  z-index: 1;
+  left: 70vw;
+}
+
+.picCaption p {
+  padding-left: 20%;
+  padding-top: 3.5%;
+  margin-left: 0vw;
+  text-align: left;
+  padding-right: 10%;
+  font-size: 1.25em;
+}
+
+.picCaption2 p {
+  padding-left: 10%;
+  padding-top: 15%;
+  margin-left: 0vw;
+  text-align: left;
+  padding-right: 15%;
+  font-size: 1.25em;
+}
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* */
+.projects {
+  width: 100vw;
+  height: 120vh;
+  position: relative;
+  top: 30vh;
+}
+
+.project1, .project2{
+  background-color: red;
+  width: 35vw;
+  top: 20vh;
+  height: auto;
+  position: absolute;
+  border-radius: 5%;
+}
+
+.project1 {
+  left: 7.5vw;
+}
+.project2 {
+  left: 57.5vw;
+}
+.project3 {
+  background-color: red;
+  width: 15vw;
+  height: auto;
+  position: relative;
+  left: 42.5vw;
+  top: 55vh;
+  border-radius: 5%;
+}
+
+.projectBox {
+  top: 0vh;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(29,29,29);
+  position: fixed;
+}
+
+.xButton {
+  width: 5vw;
+  height: 5vw;
+  background-color: purple;
+  position: absolute;
+  left: 91vw;
+  top: 1vh;
+}
+
+.showProj1 {
+  width: 90vw;
+  height: 80vh;
+
+  z-index: 4;
+  top: 14vh;
+  position: fixed;
+  min-height: 500px;
+}
+
+.imageBox {
+  width: 45vw;
+  height: 50vh;
+  top: 15vh;
+
+  position: absolute;
+  min-height: 200px;
+}
+
+.textBox {
+  border-color: gray;
+  width: 40vw;
+  height: 48vh;
+  top: 15vh;
+  left: 50vw;
+  border-radius: 5%;
+  position: absolute;
+  min-height: 200px;
 }
