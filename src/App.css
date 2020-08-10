@@ -1,13 +1,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+a {
+  text-decoration: none;
+  color: orange;
+}
+
 .App {
   text-align: center;
   background: linear-gradient(to right, orange, red, purple);
   background-image: url(./images/Background.jpg);
   background-size: cover;
   width: 100vw;
-  min-height: 4000px;
+  min-height: 3350px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   top: 0vh;
@@ -155,7 +161,7 @@ h1 {
   min-height: 103em;
   position: relative;
   top: 25vh;
-  background-color: rgba(29,29,29, 1);
+ 
   
 }
 
@@ -278,12 +284,12 @@ h1 {
 }
 
 .project1, .project2{
-  background-color: red;
+
   width: 35vw;
   top: 20vh;
   height: auto;
   position: absolute;
-  border-radius: 5%;
+
 }
 
 .project1 {
@@ -293,13 +299,13 @@ h1 {
   left: 57.5vw;
 }
 .project3 {
-  background-color: red;
-  width: 15vw;
+  background-color: black;
+  width: 35vw;
   height: auto;
   position: relative;
-  left: 42.5vw;
+  left: 32.5vw;
   top: 55vh;
-  border-radius: 5%;
+
 }
 
 .projectBox {
@@ -314,9 +320,11 @@ h1 {
 .xButton {
   width: 5vw;
   height: 5vw;
-  background-color: purple;
+  background-color: rgb(37, 37, 37);
   position: absolute;
   left: 91vw;
+  min-width: 50px;
+  min-height: 50px;
   top: 1vh;
 }
 
@@ -348,4 +356,20 @@ h1 {
   border-radius: 5%;
   position: absolute;
   min-height: 200px;
+  min-width: 200px;
+}
+
+.infoBackground {
+  background: linear-gradient(to bottom, rgb(29,29,29,.65), transparent);
+  height: 100%;
+  width: 100%;
+}
+
+.contactBox {
+
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  top: 35vh;
+  color: white;
 }
