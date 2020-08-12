@@ -13,7 +13,8 @@ a {
   background-image: url(./images/Background.jpg);
   background-size: cover;
   width: 100vw;
-  min-height: 3350px;
+  height: 520vh;
+  min-height: 1600px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   top: 0vh;
@@ -60,7 +61,7 @@ h1 {
 .navigationBar {
   position: fixed;
   top: 0vh;
-  min-height: 30px;
+  min-height: 50px;
   height: 7vh;
   width: 100vw;
   background-color: rgb(48, 47, 47);
@@ -91,7 +92,7 @@ h1 {
   width: 90vw;
   position: relative;
   left: 5vw;
-  top: 8vh;
+  top: 50px;
   border-radius: 10%;
   opacity: 1;
 }
@@ -130,16 +131,16 @@ h1 {
 .socialMediaBox {
   height: 30vh;
   width: 27vw;
-
-  top: 5vh;
-  left: 31.5vw;
+  margin-top: 0vh;
+  top: 0vh;
+  left: 37vw;
   position: relative;
 
 
 }
 
 .icon {
-  border: solid;
+  margin-top: 0vh;
   border-radius: 15%;
   border-width: .25vw;
   float: left;
@@ -158,9 +159,10 @@ h1 {
 .aboutMe {
   height: 120vh;
   width: 100vw;
-  min-height: 103em;
+  height: 250vh;
+  min-height: 700px;
   position: relative;
-  top: 25vh;
+  top: 10px;
  
   
 }
@@ -169,7 +171,7 @@ h1 {
   display: block;
   width: 100vw;
   height: 15vh;
-  top: 5vh;
+  top: 0vh;
   position: relative;
 }
 
@@ -180,7 +182,6 @@ h1 {
 
 .underLine {
   position: relative;
-  top: 3vh;
   left: 40vw;
   height: 1.25vh;
   width: 20vw;
@@ -193,42 +194,43 @@ h1 {
   left: 11vw;
   width: 40vw;
   height: 70vh;
-  background-size: cover;
+ 
 
 }
 
 .profilePic2 {
   position: relative;
-  top: 75vh;
+  top: 10vh;
   left: 47vw;
   width: 40vw;
   height: 50vh;
 }
 
 .picCaption {
+  overflow: auto;
   position: relative;
-  top: 38vh;
-  left: 47vw;
   min-width: 100px;
-  width: 40vmax;
+  width: 40vw;
   background-size: cover;
   display: block;
   border: solid;
   border-color: grey;
-  min-height: 280px;
+  height: auto;
+  max-height: 400px;
 }
 
 .picCaption2 {
+  overflow: auto;
   position: relative;
-  top: 20vh;
-  left: 11vw;
-  width: 40vmax;
+  top: -20vh;
+  left: 17vw;
+  max-height: 400px;
+  width: 40vw;
   height: auto;
   background-size: cover;
   display: block;
   border: solid;
   border-color: grey;
-  min-height: 400px;
   display: block;
 }
 
@@ -236,15 +238,17 @@ h1 {
   width: 15vw;
   height: 8vh;
   background-color: grey;
-  top: 30vh;
+  top: -15vh;
   position: relative;
   z-index: 1;
   left: 9vw;
+  min-width: 100px;
 }
 
 .picCaption2Title2 {
   width: 15vw;
   height: 8vh;
+  min-width: 100px;
   background-color: grey;
   top: 50vh;
   position: absolute;
@@ -258,7 +262,7 @@ h1 {
   margin-left: 0vw;
   text-align: left;
   padding-right: 10%;
-  font-size: 1.25em;
+  font-size: 3vh;
 }
 
 .picCaption2 p {
@@ -267,7 +271,7 @@ h1 {
   margin-left: 0vw;
   text-align: left;
   padding-right: 15%;
-  font-size: 1.25em;
+  font-size: 3vh;
 }
 
 .resize-animation-stopper * {
@@ -275,18 +279,18 @@ h1 {
   transition: none !important;
 }
 
-/* */
+/* projects */
 .projects {
   width: 100vw;
   height: 120vh;
   position: relative;
-  top: 30vh;
+  top: 0vh;
 }
 
 .project1, .project2{
 
   width: 35vw;
-  top: 20vh;
+  top: 30vh;
   height: auto;
   position: absolute;
 
@@ -304,7 +308,7 @@ h1 {
   height: auto;
   position: relative;
   left: 32.5vw;
-  top: 55vh;
+  top: 70vmin;
 
 }
 
@@ -360,9 +364,12 @@ h1 {
 }
 
 .infoBackground {
-  background: linear-gradient(to bottom, rgb(29,29,29,.65), transparent);
+  position: absolute;
+  top: 100vh;
+  margin-top: 10px;
   height: 100%;
   width: 100%;
+  background: linear-gradient(to right, rgb(29,29,29), rgb(60, 60, 60), rgb(29,29,29));
 }
 
 .contactBox {
