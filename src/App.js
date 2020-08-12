@@ -1,8 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Background from './images/Background.jpg'
-import {Facebook, GitHub, Linkedin, CornerUpRight, CornerRightUp, ArrowRight, ArrowLeft, X} from 'react-feather'
+import {Facebook, GitHub, Linkedin, X} from 'react-feather'
 import profile from './images/Profile.jpg'
 import aboutMePhoto from './images/AboutMe_Photo.jpg'
 import pdf from './images/Resume.pdf'
@@ -77,13 +75,19 @@ const Header = () =>
     </div>
     <div className="socialMediaBox">
       <div id="firstIcon" className="icon">
-        <Facebook style={{height: "5vmin", width: "5vmin"}} />  
+        <a style={{color:"white"}} href="https://www.facebook.com/richard.her.10/">
+          <Facebook style={{height: "5vmin", width: "5vmin"}} />
+        </a>
       </div>
       <div className="icon">
-        <GitHub style={{height: "5vmin", width: "5vmin"}}/>
+        <a style={{color:"white"}} href="https://github.com/R1ch933">
+          <GitHub style={{height: "5vmin", width: "5vmin"}}/>
+        </a>
       </div>
       <div className="icon" style={{marginRight:"0vw"}}>
-        <Linkedin style={{height: "5vmin", width: "5vmin"}}/>
+        <a style={{color:"white"}} href="https://www.linkedin.com/in/richard-her-1bb18518a/">
+          <Linkedin style={{height: "5vmin", width: "5vmin"}}/>
+        </a>
       </div>
     </div>
   </div>
