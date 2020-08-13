@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Facebook, GitHub, Linkedin, X} from 'react-feather'
+import {Facebook, GitHub, Linkedin, X, Phone, Mail, ArrowRight, ArrowLeft} from 'react-feather'
 import profile from './images/Profile.jpg'
 import aboutMePhoto from './images/AboutMe_Photo.jpg'
 import pdf from './images/Resume.pdf'
@@ -12,66 +12,75 @@ import ReactPlayer from 'react-player';
 
 function App() {
 
-
-  const [pos, setPos] = React.useState({pos: '-150vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '-150vw'});
+  const [flash, setFlash] = React.useState(0)
+  const [pos, setPos] = React.useState({posb: '-150vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '-150vw', proj:""});
+  const [count, setCount] = React.useState(0)
 
   const setPositionProj1 = () => 
-    setPos({pos: '0vw', posproj1: '5vw', posproj2: '-150vw', posproj3: '-150vw'});
+     setPos({posb: '0vw', posproj1: '5vw', posproj2: '-150vw', posproj3: '-150vw', proj:0});
   const setPositionProj2 = () => 
-    setPos({pos: '0vw', posproj1: '-150vw', posproj2: '5vw', posproj3: '-150vw'});
+     setPos({posb: '0vw', posproj1: '-150vw', posproj2: '5vw', posproj3: '-150vw', proj:1});
   const setPositionProj3 = () => 
-    setPos({pos: '0vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '5vw'});
+    setPos({posb: '0vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '5vw', proj:2});
 
-  const retractPosition = () => setPos({pos: '-150vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '-150vw'});
+  const retractPosition = () => setPos({posb: '-150vw', posproj1: '-150vw', posproj2: '-150vw', posproj3: '-150vw', proj:""});
 
-  let section2 = () => document.getElementById("section2")
+  
+
+  const goToHome = () => window.scrollTo(0,0);
+  const goToAbout = () => window.scrollTo(0,window.innerHeight)
+  const goToProjects = () => {window.scrollTo(0,(window.innerHeight*2.1))}
+
+  
+  
+
+
   return (
     <div className="App">
-      <NavBar s2={{section2}}/>
+      <NavBar goToHome={goToHome} goToAbout={goToAbout} goToProjects={goToProjects}/>
       <Header />
       <div className="infoBackground">
-      <About />
-      <Projects setPosition={setPositionProj1} setPosition2={setPositionProj2} setPosition3={setPositionProj3}/>
+        <About flash={flash}setFlash={setFlash}/>
+        <Projects setPosition={setPositionProj1} setPosition2={setPositionProj2} setPosition3={setPositionProj3}/>
       </div>
-      <div className="projectBox" style={{left: pos.pos}}>
+      <div className="projectHolder" style={{left: pos.posb}}>
         <div className="xButton" onClick={retractPosition}>
-          <X height="10vh" width="10vh" color="white"/>
+          <X width="5vw" height="auto" color="gray"/>
         </div>
-      
+        <ProjectOne pos={pos} setPosition2={setPositionProj2} setPosition3={setPositionProj3}/>
+        <ProjectTwo pos={pos} setPosition={setPositionProj1} setPosition3={setPositionProj3}/>
+        <ProjectThree pos={pos} setPosition={setPositionProj1} setPosition2={setPositionProj2}/>
       </div>
-      <ProjectOne pos={pos}/>
-      <ProjectTwo pos={pos}/>
-      <ProjectThree pos={pos}/>
-      
     </div>
   );
 }
 
-const NavBar = ({s2}) => 
+const NavBar = ({goToAbout,goToHome,goToProjects}) => 
   <div className="navigationBar">
-    <div className="Home">
-      <a href="">Home</a>
+    <div className="Home" onClick={goToHome}>
+      <a >Home</a>
     </div>
-    <div className="About">
-      <a href="#About">About</a>
+    <div className="About" onClick={goToAbout}>
+      <a >About</a>
     </div>
-    <div className="About">
-      <a href="#Resume">Resume</a>
+    <div className="Projects" onClick={goToProjects} >
+      <a >Projects</a>
     </div>
-    <div className="Projects">
-      <a href="#Projects">Projects</a>
+    <div className="About" >
+      <a href={pdf} target="_blank" >Resume</a>
     </div>
   </div>
 
 const Header = () => 
-  <div className="headerBox" id="section1">
+  <div className="headerBox">
     <div className="titleText"> 
       <p style={{margin:"0"}}>I'm Richard Her</p>
     </div>
-    <p style={{marginTop:"0vh", fontSize:"3vh"}}>Phone: 913-749-8200</p>
-    <p style={{marginTop:"0vh", fontSize:"3vh"}}>Email: richardher32@gmail.com</p>
+    
     <div className="briefAbout" style={{margin:"0vh"}}>
       <p>Django | HTML/CSS | Javascript | Kivy | Python | React</p>
+      <p style={{marginTop:"0vh", fontSize:"3vh"}}><Phone width="3vmin" height="auto" /> 913-749-8200</p>
+      <p style={{marginTop:"0vh", fontSize:"3vh"}}><Mail width="3vmin" height="auto"  /> richardher32@gmail.com</p>
     </div>
     <div className="socialMediaBox">
       <div id="firstIcon" className="icon">
@@ -92,77 +101,62 @@ const Header = () =>
     </div>
   </div>
 
-const About = () => {
-
-  const size = UseWindowSize()
-
-  const [dim, setDim] = React.useState({t:"39vh",l:"39vw"})
-  
-
-
-  return(
-  <div className="aboutMe" id="About">
-    <div className="aboutMeTitle">
-      <p>About Me</p>
-    </div>
-    <div className="underLine">
-
-    </div>
-    <div style={{height:"100vh"}}>
-      <div className="picCaption2Title2">
-          <h3 style={{color:"white",marginTop:"1.5vh", fontSize:"3vh"}}>Summary</h3>
-      </div> 
-      <div className="profilePic">
-        <img src={profile} style={{width:"25vw",height:"auto", margin:"10px"}}/>
-      </div>
-      <div className="picCaption" style={{left:dim.l,top:dim.t}}>
-        <p>My name is Richard Her. I'm from Kansas City, Kansas and I decided to pursue my bachelor's in computer science because computer
-          programming always interested me. From web applications to video games, I was curious on how those
-          contents were made. I find its creative aspects fascinating.
-        </p>
-      </div>
-    </div>
-    <div style={{height:"125vh"}}>
-      <div className="profilePic2">
-        <img src={aboutMePhoto} style={{width: "25vw", height: "auto", margin:"10px"}}/>
-      </div>
-      <div className="picCaption2Title">
-        <h3 style={{color:"white",paddingTop:"1.5vh", fontSize:"3vh"}} id="Resume">Education</h3>
-      </div>  
-      <div className="picCaption2">
-        <p>
-          I graduated from Sumner Academy of Arts and Science in Highschool.
-          I am now an undergraduate sophomore attending Kansas City, Kansas Community College
-          in pursuit of a technical associates. I plan to continue my education at Park University
-          to obtain a bachelor's in Computer Science.
-        </p>
-        <p>
-          Click <a href={pdf} target="_blank" style={{textDecoration:"none", color: "orange"}}>here</a> to download my resume
-        </p>
-      </div>
-    </div>
-  </div>)}
-
-const Projects = ({setPosition,setPosition2,setPosition3}) => 
-  <div className="projects" id="Projects">
-    <hr/>
+const About = ({flash, setFlash}) =>
+  <div style={{paddingTop:"5vh"}} id="About">
     <div>
-        <h1>Projects</h1>
+      <h1 className="subTitle">About Me</h1>
     </div>
-    <div className="project1" onClick={setPosition}>
-      <img style={{width: "100%",height:"auto"}} src={project1}/>
+    <img src={aboutMePhoto} style={{width:"auto",height:"15vw"}} />
+    <div>
+      <div className="aboutMeText">
+        <p>My name is Richard Her. I grew up in Wyandotte County in Kansas City, Kansas.
+          I became a computer programmer because its utility fascinated me. From video games to web
+          applications, I wanted to know how to do it all. The more I learn, the more I realize how much
+          I don't know and the more I want to close the gap.
+        </p>
+      </div>
     </div>
-    <div className="project2" onClick={setPosition2}>
-      <img style={{width: "100%",height:"auto"}} src={project2}/>
+    <div style={{marginTop:"10vh"}}>
+      <h1 className="subTitle">Education</h1>
     </div>
-    <div className="project3" onClick={setPosition3}>
-      <img style={{width: "15vw",height:"auto"}} src={project3}/>
+    <div >
+      <div className="aboutMeText">
+        <p >I graduated from Sumner Academy of Arts and Science in 2019. I am now in my sophmore year at
+          Kansas City, Kansas Community College pursuing my technical's associates. I am planning to continue
+          my education at Park University to get a bachelor's in computer science.
+        </p>
+        <p >Click <a className="link" flash={flash} onAnimationEnd={()=>setFlash(0)}href={pdf} target="_blank">
+          HERE</a> to download my resume
+        </p>
+      </div>
     </div>
   </div>
 
-const ProjectOne = ({pos}) =>
+const Projects = ({setPosition,setPosition2,setPosition3}) => 
+  <div className="projects">
+    <div>
+      <h1 style={{fontSize:"5vmin"}}>Projects</h1>
+    </div>
+    <div style={{float:"left"}}>
+      <img onClick={setPosition}className="projectIcons" src={project1} style={{width:"25vw",height:"auto", marginLeft:"22.5vw"}}/>
+      <img onClick={setPosition2} className="projectIcons" src={project2} style={{width:"25vw",height:"auto"}}/>
+      <div className="projectIconDiff"onClick={setPosition3} style={{height:"fit-content", width:"25vw", backgroundColor:"black",marginLeft:"37.5vw", marginTop:"5vh"}}>
+      <img src={project3} style={{width:"8.25vw",height:"auto"}}/>
+      </div>
+
+    </div>
+  </div>
+
+const ProjectOne = ({pos, setPosition2, setPosition3}) =>
   <div className="showProj1" style={{left: pos.posproj1}} >
-  <div style={{position:"relative", height:"5vh", color:"white"}}>
+    <div className="left" onClick={setPosition3}>
+      <ArrowLeft height="5vmin" width="auto" color="gray"/> 
+    </div>
+    <div className="right" onClick={setPosition2}>
+     <ArrowRight height="5vmin" width="auto" color="gray"/>
+    </div>
+  <div className="project1Title"style={{position:"relative", height:"5vh", color:"white"}}>
+    
     <h3 style={{fontSize: "3vh"}}>Project 1: Reference-Dojo Web Application (Django)</h3>
   </div>
   <div className="imageBox">
@@ -179,8 +173,14 @@ const ProjectOne = ({pos}) =>
 
   </div>
 
-const ProjectTwo = ({pos}) =>
+const ProjectTwo = ({pos, setPosition3, setPosition}) =>
   <div className="showProj1" style={{left: pos.posproj2}} >
+  <div className="left" onClick={setPosition}>
+      <ArrowLeft height="5vmin" width="auto" color="gray"/> 
+    </div>
+    <div className="right" onClick={setPosition3}>
+     <ArrowRight height="5vmin" width="auto" color="gray"/>
+  </div>
   <div style={{position:"relative", height:"5vh", color:"white"}}>
     <h3 style={{fontSize: "3vh"}}>Project 2: Don't Let It Rain Game (React)</h3>
   </div>
@@ -197,8 +197,14 @@ const ProjectTwo = ({pos}) =>
 
   </div> 
 
-const ProjectThree = ({pos}) =>
+const ProjectThree = ({pos, setPosition, setPosition2}) =>
 <div className="showProj1" style={{left: pos.posproj3}} >
+  <div className="left" onClick={setPosition2}>
+      <ArrowLeft height="5vmin" width="auto" color="gray"/> 
+    </div>
+    <div className="right" onClick={setPosition}>
+     <ArrowRight height="5vmin" width="auto" color="gray"/>
+  </div>
 <div style={{position:"relative", height:"5vh", color:"white"}}>
   <h3 style={{fontSize: "3vh"}}>Project 3: Master Password Android App (Kivy)</h3>
 </div>
@@ -236,6 +242,7 @@ function UseWindowSize() {
   }, []);
   return size;
 }
+
 
 let resizeTimer;
 window.addEventListener("resize", () => {
