@@ -80,7 +80,7 @@ h1 {
 }
 
 .navigationBar a {
-  margin-top: 10px;
+  margin-top: .75em;
   float: left;
   margin-right: 40px;
   font-size: medium;
@@ -181,7 +181,7 @@ h1 {
 }
 
 .aboutMeText p {
-  font-size: 3.5vh;
+  font-size: 2.5vh;
 }
 
 .subTitle {
